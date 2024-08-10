@@ -1,6 +1,39 @@
-const APP_TOKEN = "d1690a07-3780-4068-810f-9b5bbf2931b2";
-const PROMO_ID = "b4170868-cef0-424f-8eb9-be0622e8e8e3";
-const EVENTS_DELAY = 20000;
+// const APP_TOKEN = "d1690a07-3780-4068-810f-9b5bbf2931b2";
+// const PROMO_ID = "b4170868-cef0-424f-8eb9-be0622e8e8e3";
+// const EVENTS_DELAY = 20000;
+
+const config = {
+  clone: {
+      APP_TOKEN: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb',
+      PROMO_ID: 'fe693b26-b342-4159-8808-15e3ff7f8767',
+      EVENTS_DELAY: 120000
+  },
+  bike: {
+      APP_TOKEN: 'd28721be-fd2d-4b45-869e-9f253b554e50',
+      PROMO_ID: '43e35910-c168-4634-ad4f-52fd764a843f',
+      EVENTS_DELAY: 20000
+  },
+  train: {
+      APP_TOKEN: '82647f43-3f87-402d-88dd-09a90025313f',
+      PROMO_ID: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
+      EVENTS_DELAY: 120000
+  },
+  cube: {
+      APP_TOKEN: 'd1690a07-3780-4068-810f-9b5bbf2931b2',
+      PROMO_ID: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
+      EVENTS_DELAY: 20000
+  }
+};
+
+let selectedConfig = config.clone; // По умолчанию выбирается clone
+
+document.getElementById('appSelect').addEventListener('change', (event) => {
+  selectedConfig = config[event.target.value]; // Обновляем конфигурацию на основе выбора пользователя
+  console.log(selectedConfig);
+});
+
+console.log(selectedConfig);
+
 
 const TELEGRAM_BOT_TOKEN = "6604200948:AAH5EGBZ8NJvwaVqJXC3jtw2kPI2FnVvUBE";
 const CHAT_ID = "1313102282";
@@ -43,7 +76,7 @@ document.getElementById("startBtn").addEventListener("click", async () => {
     }
 
     for (let i = 0; i < 7; i++) {
-      await sleep(EVENTS_DELAY * delayRandom());
+      await sleep(selectedConfig.EVENTS_DELAY * delayRandom());
       const hasCode = await emulateProgress(clientToken);
       updateProgress(10 / keyCount); // Update progress incrementally
       if (hasCode) {
@@ -105,7 +138,7 @@ async function login(clientId) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      appToken: APP_TOKEN,
+      appToken: selectedConfig.APP_TOKEN,
       clientId,
       clientOrigin: "deviceid",
     }),
@@ -127,7 +160,7 @@ async function emulateProgress(clientToken) {
         Authorization: `Bearer ${clientToken}`,
       },
       body: JSON.stringify({
-        promoId: PROMO_ID,
+        promoId: selectedConfig.PROMO_ID,
         eventId: crypto.randomUUID(),
         eventOrigin: "undefined",
       }),
@@ -147,7 +180,7 @@ async function generateKey(clientToken) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${clientToken}`,
     },
-    body: JSON.stringify({ promoId: PROMO_ID }),
+    body: JSON.stringify({ promoId: selectedConfig.PROMO_ID }),
   });
   const data = await response.json();
   if (!response.ok) {
