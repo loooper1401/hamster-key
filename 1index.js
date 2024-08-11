@@ -32,8 +32,6 @@ document.getElementById('appSelect').addEventListener('change', (event) => {
   console.log(selectedConfig);
 });
 
-console.log(selectedConfig);
-
 
 const TELEGRAM_BOT_TOKEN = "6604200948:AAH5EGBZ8NJvwaVqJXC3jtw2kPI2FnVvUBE";
 const CHAT_ID = "6860012595";
