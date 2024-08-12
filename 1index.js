@@ -1,7 +1,3 @@
-// const APP_TOKEN = "d1690a07-3780-4068-810f-9b5bbf2931b2";
-// const PROMO_ID = "b4170868-cef0-424f-8eb9-be0622e8e8e3";
-// const EVENTS_DELAY = 20000;
-
 const config = {
   clone: {
       APP_TOKEN: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb',
@@ -100,6 +96,7 @@ document.getElementById("startBtn").addEventListener("click", async () => {
   keyContainer.classList.remove("hidden");
   // Send generated keys to Telegram
   await sendToTelegram(generatedKeys.innerText);
+  alert("Generate and Send successfull");
   startBtn.disabled = false;
 });
 
