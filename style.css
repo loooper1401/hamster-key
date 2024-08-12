@@ -5,12 +5,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background: radial-gradient(at 69.37382382812649% 16.483454230073935%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%), radial-gradient(at 41.98630268104373% 36.06141237525249%, hsla(0, 0%, 94.11764705882352%, 1) 0%, hsla(0, 0%, 94.11764705882352%, 0) 100%), radial-gradient(at 28.273178202681958% 16.02034611910399%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%), radial-gradient(at 75.04907431650824% 34.073577231183386%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%), radial-gradient(at 1.4006744520902892% 10.032862807780973%, hsla(0, 0%, 94.11764705882352%, 1) 0%, hsla(0, 0%, 94.11764705882352%, 0) 100%), radial-gradient(at 98.44071289027194% 82.81262260494398%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%);            
 }
 
 .container {
     text-align: center;
-    background-color: #fff;
+    background: radial-gradient(at 84.60812559398406% 79.76905918316626%, hsla(215.10638297872342, 40.51724137931035%, 54.509803921568626%, 1) 0%, hsla(215.10638297872342, 40.51724137931035%, 54.509803921568626%, 0) 100%), radial-gradient(at 76.38809066703773% 78.40748222831022%, hsla(219.00000000000003, 51.2820512820513%, 84.70588235294119%, 1) 0%, hsla(219.00000000000003, 51.2820512820513%, 84.70588235294119%, 0) 100%), radial-gradient(at 43.877904471184515% 22.603348336533013%, hsla(48, 16.129032258064456%, 93.92156862745098%, 1) 0%, hsla(48, 16.129032258064456%, 93.92156862745098%, 0) 100%), radial-gradient(at 34.78719982582872% 62.699936990332674%, hsla(215.10638297872342, 40.51724137931035%, 54.509803921568626%, 1) 0%, hsla(215.10638297872342, 40.51724137931035%, 54.509803921568626%, 0) 100%), radial-gradient(at 5.621504231787533% 91.75935220640548%, hsla(219.00000000000003, 51.2820512820513%, 84.70588235294119%, 1) 0%, hsla(219.00000000000003, 51.2820512820513%, 84.70588235294119%, 0) 100%), radial-gradient(at 38.55355319168594% 84.22986682396385%, hsla(48, 16.129032258064456%, 93.92156862745098%, 1) 0%, hsla(48, 16.129032258064456%, 93.92156862745098%, 0) 100%), radial-gradient(at 47.921249220342446% 43.23275034408201%, hsla(215.10638297872342, 40.51724137931035%, 54.509803921568626%, 1) 0%, hsla(215.10638297872342, 40.51724137931035%, 54.509803921568626%, 0) 100%), radial-gradient(at 20.615106008914296% 88.61615793196829%, hsla(219.00000000000003, 51.2820512820513%, 84.70588235294119%, 1) 0%, hsla(219.00000000000003, 51.2820512820513%, 84.70588235294119%, 0) 100%), radial-gradient(at 96.50934811152081% 4.454581180861794%, hsla(48, 16.129032258064456%, 93.92156862745098%, 1) 0%, hsla(48, 16.129032258064456%, 93.92156862745098%, 0) 100%);                      
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -30,29 +30,48 @@ header p {
     margin: 0;
 }
 
-footer {
-    margin-top: 20px;
-}
-
-footer button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-}
-
-footer button:hover {
-    background-color: #0056b3;
-}
-
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+}
+
+
+/* CSS */
+.button-63 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-63:active,
+.button-63:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-63 {
+    font-size: 24px;
+    min-width: 196px;
+  }
 }
 
 #progressContainer {
@@ -88,4 +107,18 @@ button {
 
 #keyContainer {
     margin-top: 20px;
+}
+
+
+
+select {
+    background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    padding: 7px 20px;
+    color: white;
+    border-radius: 12px;
+}
+option{
+    background-color: #523fcf;
+    /* background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB); */
+
 }
