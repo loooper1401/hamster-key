@@ -96,8 +96,8 @@ document.getElementById("startBtn").addEventListener("click", async () => {
   keyContainer.classList.remove("hidden");
   // Send generated keys to Telegram
   await sendToTelegram(generatedKeys.innerText);
-  alert("Generate and Send successfull");
   startBtn.disabled = false;
+  alert("Generate and Send successfull");
 });
 
 // Telegramga jonatish
