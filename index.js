@@ -25,7 +25,7 @@ let selectedConfig = config.clone; // По умолчанию выбираетс
 
 document.getElementById('appSelect').addEventListener('change', (event) => {
   selectedConfig = config[event.target.value]; // Обновляем конфигурацию на основе выбора пользователя
-  console.log(selectedConfig);
+
 });
 
 
