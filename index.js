@@ -1,20 +1,24 @@
 const config = {
   clone: {
+      name:"clone",
       APP_TOKEN: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb',
       PROMO_ID: 'fe693b26-b342-4159-8808-15e3ff7f8767',
       EVENTS_DELAY: 120000
   },
   bike: {
+    name:"bike",
       APP_TOKEN: 'd28721be-fd2d-4b45-869e-9f253b554e50',
       PROMO_ID: '43e35910-c168-4634-ad4f-52fd764a843f',
       EVENTS_DELAY: 20000
   },
   train: {
+    name:"train",
       APP_TOKEN: '82647f43-3f87-402d-88dd-09a90025313f',
       PROMO_ID: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
       EVENTS_DELAY: 120000
   },
   cube: {
+    name:"cube",
       APP_TOKEN: 'd1690a07-3780-4068-810f-9b5bbf2931b2',
       PROMO_ID: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
       EVENTS_DELAY: 20000
@@ -25,7 +29,7 @@ let selectedConfig = config.clone; // По умолчанию выбираетс
 
 document.getElementById('appSelect').addEventListener('change', (event) => {
   selectedConfig = config[event.target.value]; // Обновляем конфигурацию на основе выбора пользователя
-
+console.log(selectedConfig)
 });
 
 
