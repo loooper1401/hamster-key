@@ -53,7 +53,7 @@ document.getElementById("startBtn").addEventListener("click", async () => {
   const keyContainer = document.getElementById("keyContainer");
   const generatedKeys = document.getElementById("generatedKeys");
   const keyCount =
-    parseInt(document.getElementById("keyCountSelect").value) * 2;
+    parseInt(document.getElementById("keyCountSelect").value);
 
   // Reset UI for new generation
   progressBar.style.width = "0%";
