@@ -1,35 +1,48 @@
 const config = {
   clone: {
-      APP_TOKEN: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb',
-      PROMO_ID: 'fe693b26-b342-4159-8808-15e3ff7f8767',
-      EVENTS_DELAY: 120000
+    name: "clone",
+    APP_TOKEN: "74ee0b5b-775e-4bee-974f-63e7f4d5bacb",
+    PROMO_ID: "fe693b26-b342-4159-8808-15e3ff7f8767",
+    EVENTS_DELAY: 120000,
   },
   bike: {
-      APP_TOKEN: 'd28721be-fd2d-4b45-869e-9f253b554e50',
-      PROMO_ID: '43e35910-c168-4634-ad4f-52fd764a843f',
-      EVENTS_DELAY: 20000
+    name: "bike",
+    APP_TOKEN: "d28721be-fd2d-4b45-869e-9f253b554e50",
+    PROMO_ID: "43e35910-c168-4634-ad4f-52fd764a843f",
+    EVENTS_DELAY: 20000,
   },
   train: {
-      APP_TOKEN: '82647f43-3f87-402d-88dd-09a90025313f',
-      PROMO_ID: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
-      EVENTS_DELAY: 120000
+    name: "train",
+    APP_TOKEN: "82647f43-3f87-402d-88dd-09a90025313f",
+    PROMO_ID: "c4480ac7-e178-4973-8061-9ed5b2e17954",
+    EVENTS_DELAY: 120000,
   },
   cube: {
-      APP_TOKEN: 'd1690a07-3780-4068-810f-9b5bbf2931b2',
-      PROMO_ID: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
-      EVENTS_DELAY: 20000
-  }
+    name: "cube",
+    APP_TOKEN: "d1690a07-3780-4068-810f-9b5bbf2931b2",
+    PROMO_ID: "b4170868-cef0-424f-8eb9-be0622e8e8e3",
+    EVENTS_DELAY: 20000,
+  },
+  merge: {
+    APP_TOKEN: "8d1cc2ad-e097-4b86-90ef-7a27e19fb833",
+    PROMO_ID: "dc128d28-c45b-411c-98ff-ac7726fbaea4",
+    EVENTS_DELAY: 20000,
+  },
+  race: {
+    APP_TOKEN: "61308365-9d16-4040-8bb0-2f4a4c69074c",
+    PROMO_ID: "61308365-9d16-4040-8bb0-2f4a4c69074c",
+    EVENTS_DELAY: 20000,
+  },
 };
 
 let selectedConfig = config.clone; // По умолчанию выбирается clone
 
-document.getElementById('appSelect').addEventListener('change', (event) => {
+document.getElementById("appSelect").addEventListener("change", (event) => {
   selectedConfig = config[event.target.value]; // Обновляем конфигурацию на основе выбора пользователя
   console.log(selectedConfig);
 });
 
-
-const TELEGRAM_BOT_TOKEN = "6604200948:AAH5EGBZ8NJvwaVqJXC3jtw2kPI2FnVvUBE";
+const TELEGRAM_BOT_TOKEN = "6604200948:AAEQNFg9C4A_TIhAcSkrCNhqi1V6tkgRUa4";
 const CHAT_ID = "6860012595";
 
 document.getElementById("startBtn").addEventListener("click", async () => {
@@ -113,8 +126,12 @@ async function sendToTelegram(message) {
       text: message,
     }),
   });
+
   const data = await response.json();
+  console.log(data.message);
   if (!response.ok) {
+    console.log(data.description);
+
     throw new Error(data.description || "Failed to send message to Telegram");
   }
 }
