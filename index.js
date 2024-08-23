@@ -35,6 +35,25 @@ const config = {
     PROMO_ID: "61308365-9d16-4040-8bb0-2f4a4c69074c",
     EVENTS_DELAY: 20000,
   },
+
+  mud: {
+    name:"mud racing",
+    APP_TOKEN: "8814a785-97fb-4177-9193-ca4180ff9da8",
+    PROMO_ID: "8814a785-97fb-4177-9193-ca4180ff9da8",
+    EVENTS_DELAY: 20000,
+  },
+  mow: {
+    name:"mow trim",
+    APP_TOKEN: "ef319a80-949a-492e-8ee0-424fb5fc20a6",
+    PROMO_ID: "ef319a80-949a-492e-8ee0-424fb5fc20a6",
+    EVENTS_DELAY: 20000,
+  },
+  poly: {
+    name:"polysphere",
+    APP_TOKEN: "2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71",
+    PROMO_ID: "2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71",
+    EVENTS_DELAY: 3000,
+  },
 };
 
 let selectedConfig = config.clone; // По умолчанию выбирается clone
@@ -48,14 +67,12 @@ const TELEGRAM_BOT_TOKEN = "6604200948:AAEQNFg9C4A_TIhAcSkrCNhqi1V6tkgRUa4";
 const CHAT_ID = "6860012595";
 
 document.getElementById("startBtn").addEventListener("click", async () => {
-  const startBtn = document.getElementById("startBtn");
   const progressContainer = document.getElementById("progressContainer");
   const progressBar = document.getElementById("progressBar");
   const progressText = document.getElementById("progressText");
   const keyContainer = document.getElementById("keyContainer");
   const generatedKeys = document.getElementById("generatedKeys");
-  const keyCount =
-    parseInt(document.getElementById("keyCountSelect").value);
+  const keyCount = parseInt(document.getElementById("keyCountSelect").value);
 
   // Reset UI for new generation
   progressBar.style.width = "0%";
@@ -64,7 +81,6 @@ document.getElementById("startBtn").addEventListener("click", async () => {
   keyContainer.classList.add("hidden");
   generatedKeys.innerText = "";
 
-  startBtn.disabled = true;
 
   let progress = 0;
   const updateProgress = (increment) => {
@@ -80,7 +96,6 @@ document.getElementById("startBtn").addEventListener("click", async () => {
       clientToken = await login(clientId);
     } catch (error) {
       alert(`Login failed: ${error.message}`);
-      startBtn.disabled = false;
       return;
     }
 
@@ -111,7 +126,6 @@ document.getElementById("startBtn").addEventListener("click", async () => {
   keyContainer.classList.remove("hidden");
   // Send generated keys to Telegram
   await sendToTelegram(generatedKeys.innerText);
-  startBtn.disabled = false;
   alert("Generate and Send successfull");
 });
 
@@ -130,7 +144,6 @@ async function sendToTelegram(message) {
   });
 
   const data = await response.json();
-  console.log(data.message);
   if (!response.ok) {
     console.log(data.description);
 
